@@ -1,0 +1,29 @@
+﻿@model ActivityTracker.Models.Activity
+
+<div class="text-center">
+    <h1 class="display-4">Add an activity</h1>
+
+    <form asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+
+        <div>
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Date"></label>
+            <input asp-for="Date" type="datetime-local" class="form-control"/>
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="IsComplete"></label>
+            <input asp-for="IsComplete" type="checkbox" />
+            <span asp-validation-for="IsComplete" class="text-danger"></span>
+        </div>
+
+        <button type="submit">Create</button>
+    </form>
+</div>
